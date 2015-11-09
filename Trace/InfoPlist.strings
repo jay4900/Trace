@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  Trace
+
+  Created by Wuffy on 11/7/15.
+  Copyright © 2015 Wuffy. All rights reserved.
+*/
+
+//弹出定位授权时的提示信息
+NSLocationAlwaysUsageDescription        = "App use your loction info to show your position on the map.";
+NSLocationWhenInUseUsageDescription     = "App use your loction info to show your position on the map.";

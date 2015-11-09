@@ -1,0 +1,24 @@
+//
+//  PrefixHeader.pch
+//  Trace
+//
+//  Created by Wuffy on 11/7/15.
+//  Copyright © 2015 Wuffy. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef  __OBJC__
+#import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "CoreDataManager.h"
+#import "Constants.h"
+#import "TraceInfo.h"
+#import "MyGlobal.h"
+#endif
+
+#endif /* PrefixHeader_pch */
