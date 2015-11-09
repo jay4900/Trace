@@ -15,6 +15,8 @@
     if (self = [super initWithFrame:frame]) {
         self.dataArr = [COREDATA fetchTraceList];
         
+        [COREDATA fetchLocationsCount];
+        
         self.tableView = [[UITableView alloc] initWithFrame:frame];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;

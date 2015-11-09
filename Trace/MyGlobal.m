@@ -36,7 +36,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyyMMddHHmmss";
     NSString *dateStr = [formatter stringFromDate:date];
-    resultStr = [NSString stringWithFormat:@"trace_%@.plist", dateStr];
+    resultStr = [NSString stringWithFormat:@"trace_%@", dateStr];
     return resultStr;
 }
 

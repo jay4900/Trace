@@ -24,6 +24,7 @@
 - (CDTraceList *)addNewTraceWithName:(NSString *)name;
 - (CDTraceList *)fetchTraceWithName:(NSString *)name;
 - (void)deleteTrace:(CDTraceList *)trace;
+- (void)fetchLocationsCount;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

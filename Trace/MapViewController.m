@@ -92,8 +92,11 @@
     
     listView.fileNameHandler = ^(NSString *fileName) {
         CDTraceList *trace = [COREDATA fetchTraceWithName:fileName];
+        NSSortDescriptor *sortDes = [NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:YES];
+        NSArray *locations = [trace.locations sortedArrayUsingDescriptors:@[sortDes]];
+        
         NSMutableArray *coordsArr = [NSMutableArray array];
-        for (CDLocation *location in trace.locations) {
+        for (CDLocation *location in locations) {
             CGFloat lat = [location.latitude doubleValue];
             CGFloat lng = [location.longitude doubleValue];
             CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(lat, lng);
@@ -122,29 +125,30 @@
     
     if (self.coordsArr.count) {
         self.currentPlayIndex = 0;
+        [self.mapView clearAllLines];
         self.tracePlayTimer = [NSTimer scheduledTimerWithTimeInterval:2.0
                                                                target:self
-                                                             selector:@selector(addCustomPin)
+                                                             selector:@selector(drawLineToMap)
                                                              userInfo:nil
                                                               repeats:YES];
     }
 }
 
-- (void)addCustomPin
+- (void)drawLineToMap
 {
     NSValue *coordValue = self.coordsArr[self.currentPlayIndex];
     [self.mapView addLineToCoord:coordValue.MKCoordinateValue isCentered:YES];
     
-    if (self.currentPlayIndex > 0) {
-        NSValue *lastCoordValue = self.coordsArr[self.currentPlayIndex-1];
-        CLLocationCoordinate2D lastCoord = [lastCoordValue MKCoordinateValue];
-        CLLocation *lastLocation = [[CLLocation alloc] initWithLatitude:lastCoord.latitude longitude:lastCoord.longitude];
-        
-        CLLocationCoordinate2D currentCoord = [coordValue MKCoordinateValue];
-        CLLocation *currentLocation = [[CLLocation alloc] initWithLatitude:currentCoord.latitude longitude:currentCoord.longitude];
-        CGFloat distance = [currentLocation distanceFromLocation:lastLocation];
-        NSLog(@"distance:%.2f", distance);
-    }
+//    if (self.currentPlayIndex > 0) {
+//        NSValue *lastCoordValue = self.coordsArr[self.currentPlayIndex-1];
+//        CLLocationCoordinate2D lastCoord = [lastCoordValue MKCoordinateValue];
+//        CLLocation *lastLocation = [[CLLocation alloc] initWithLatitude:lastCoord.latitude longitude:lastCoord.longitude];
+//        
+//        CLLocationCoordinate2D currentCoord = [coordValue MKCoordinateValue];
+//        CLLocation *currentLocation = [[CLLocation alloc] initWithLatitude:currentCoord.latitude longitude:currentCoord.longitude];
+//        CGFloat distance = [currentLocation distanceFromLocation:lastLocation];
+//        NSLog(@"distance:%.2f", distance);
+//    }
     
     if (++self.currentPlayIndex == self.coordsArr.count) {
         [self.tracePlayTimer invalidate];

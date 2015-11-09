@@ -119,8 +119,8 @@
 			children = (
 				83759BA71BEDC5DF00D248BE /* AppDelegate.h */,
 				83759BA81BEDC5DF00D248BE /* AppDelegate.m */,
-				83BE40F91BF0839900B4CAB4 /* CoreData */,
 				83759BA41BEDC5DF00D248BE /* Supporting Files */,
+				83BE40F91BF0839900B4CAB4 /* CoreData */,
 				83759BD21BEDD43D00D248BE /* Global */,
 				83759BC01BEDC70400D248BE /* UI */,
 			);
@@ -162,10 +162,10 @@
 			isa = PBXGroup;
 			children = (
 				83759BD31BEDD44A00D248BE /* Constants.h */,
-				83759BDA1BEDE6F500D248BE /* TraceInfo.h */,
-				83759BDB1BEDE6F500D248BE /* TraceInfo.m */,
 				83759BDD1BEDE7B000D248BE /* MyGlobal.h */,
 				83759BDE1BEDE7B000D248BE /* MyGlobal.m */,
+				83759BDA1BEDE6F500D248BE /* TraceInfo.h */,
+				83759BDB1BEDE6F500D248BE /* TraceInfo.m */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -427,13 +427,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = $PROJECT_NAME/PrefixHeader.pch;
 				INFOPLIST_FILE = Trace/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iwit2014.Trace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e602dab5-4150-4fd3-9bb3-193f96957760";
+				PROVISIONING_PROFILE = "a9ce5dfc-bc02-4139-9126-5f5d7143a0a8";
 			};
 			name = Debug;
 		};
@@ -441,13 +443,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = $PROJECT_NAME/PrefixHeader.pch;
 				INFOPLIST_FILE = Trace/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iwit2014.Trace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e602dab5-4150-4fd3-9bb3-193f96957760";
+				PROVISIONING_PROFILE = "a9ce5dfc-bc02-4139-9126-5f5d7143a0a8";
 			};
 			name = Release;
 		};

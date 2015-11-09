@@ -108,6 +108,9 @@
 - (NSMutableArray *)fetchTraceList
 {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:Entity_Trace];
+    NSSortDescriptor *dateSortDes = [[NSSortDescriptor alloc] initWithKey:@"createTime" ascending:NO];
+    [fetchRequest setSortDescriptors:@[dateSortDes]];
+    
     NSError *error = nil;
     NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     if (!results) {
@@ -152,6 +155,9 @@
 
 - (void)deleteTrace:(CDTraceList *)trace
 {
+    for (CDLocation *location in trace.locations) {
+        [self.managedObjectContext deleteObject:location];
+    }
     [self.managedObjectContext deleteObject:trace];
 }
 
@@ -159,6 +165,13 @@
 {
     CDLocation *location = (CDLocation *)[self addEntityWithName:Entity_Location];
     return location;
+}
+
+- (void)fetchLocationsCount
+{
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:Entity_Location];
+    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSLog(@"locations count:%d", [results count]);
 }
 
 @end

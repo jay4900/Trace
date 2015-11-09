@@ -80,8 +80,8 @@
                      @{@"title":@"Duration",        @"unit":@"minute",  @"key":@"duration"},
                      @{@"title":@"Elevation",       @"unit":@"m",       @"key":@"elevation"},
                      @{@"title":@"Speed",           @"unit":@"km/h",    @"key":@"speed"},
-                     @{@"title":@"Ascent",          @"unit":@"km",      @"key":@"ascent"},
-                     @{@"title":@"Descent",         @"unit":@"km",      @"key":@"descent"},
+                     @{@"title":@"HorizontalAccuracy",          @"unit":@"m",      @"key":@"ascent"},
+                     @{@"title":@"VerticalAccuracy",         @"unit":@"m",      @"key":@"descent"},
                      @{@"title":@"Latitude",        @"unit":@"",        @"key":@"latitude"},
                      @{@"title":@"Longitude",       @"unit":@"",        @"key":@"longitude"}];
     GLOBAL.isTracing = NO;
@@ -94,10 +94,14 @@
             self.locationManager = [[CLLocationManager alloc] init];
             self.locationManager.delegate = self;
             self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+            self.locationManager.activityType = CLActivityTypeAutomotiveNavigation;
             self.locationManager.distanceFilter = 10.0f;
             if ([[[UIDevice currentDevice] systemVersion] doubleValue] > 8.0)
                 [self.locationManager requestWhenInUseAuthorization];
-            [self.locationManager startUpdatingLocation];
+//            [self.locationManager startUpdatingLocation];
+            
+            self.locationManager.headingFilter = 90;
+            [self.locationManager startUpdatingHeading];
             NSLog(@"开始定位");
         }else{
 //            [self.locationManager stopUpdatingLocation];
@@ -120,6 +124,7 @@
 //        GLOBAL.coordsArr = [NSMutableArray array];
         self.traceFileName = [GLOBAL getNewTraceFileName];
         self.trace = [COREDATA addNewTraceWithName:self.traceFileName];
+        [self.locationManager stopUpdatingHeading];
     }
     
     if (GLOBAL.isTracing == NO) {
@@ -138,6 +143,7 @@
 {
     [COREDATA saveContext];
     self.trace = nil;
+    [self.locationManager startUpdatingHeading];
     
     self.saveItem.enabled = NO;
     
@@ -146,6 +152,20 @@
     GLOBAL.isTracing = NO;
 }
 
+#pragma mark - 其他方法
+- (void)updateCollectionViewWithLocation:(CLLocation *)location
+{
+    if (GLOBAL.traceInfo == nil) GLOBAL.traceInfo = [[TraceInfo alloc] init];
+    GLOBAL.traceInfo.latitude = location.coordinate.latitude;
+    GLOBAL.traceInfo.longitude = location.coordinate.longitude;
+    GLOBAL.traceInfo.elevation = location.altitude;
+    GLOBAL.traceInfo.ascent = location.horizontalAccuracy;
+    GLOBAL.traceInfo.descent = location.verticalAccuracy;
+    if (location.speed >= 0) GLOBAL.traceInfo.speed = location.speed * 3.6;
+    else GLOBAL.traceInfo.speed = 0.0;
+    
+    [self.collectionView reloadData];
+}
 - (void)pushStringToTextView:(NSString *)str
 {
     self.logTextView.text = [NSString stringWithFormat:@"%@\n%@", self.logTextView.text, str];
@@ -201,7 +221,7 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     CLLocation *location = [locations lastObject];
-    NSLog(@"location:%f, %f", location.coordinate.latitude, location.coordinate.longitude);
+    NSLog(@"location:%f, %f, %f, %f", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy, location.verticalAccuracy);
     
     if (GLOBAL.isTracing) {
         CDLocation *loc = (CDLocation *)[COREDATA addEntityWithName:Entity_Location];
@@ -216,18 +236,21 @@
         [manager stopUpdatingLocation];
     }
     
-    if (GLOBAL.traceInfo == nil) GLOBAL.traceInfo = [[TraceInfo alloc] init];
-    GLOBAL.traceInfo.latitude = location.coordinate.latitude;
-    GLOBAL.traceInfo.longitude = location.coordinate.longitude;
-    GLOBAL.traceInfo.elevation = location.altitude;
-    if (location.speed >= 0) GLOBAL.traceInfo.speed = location.speed * 3.6;
-    else GLOBAL.traceInfo.speed = 0.0;
+    [self updateCollectionViewWithLocation:location];
     
     if (GLOBAL.isTracing) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_addLineToMap object:location];
     }
-    
-    [self.collectionView reloadData];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading
+{
+    if (GLOBAL.isTracing == NO) {
+        CLLocation *location = manager.location;
+        NSLog(@"location:%f, %f, %f, %f", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy, location.verticalAccuracy);
+        
+        [self updateCollectionViewWithLocation:location];
+    }
 }
 
 @end

@@ -45,7 +45,7 @@
             if ([[[UIDevice currentDevice] systemVersion] doubleValue] > 8.0)
                 [self.locationManager requestWhenInUseAuthorization];
             [self.locationManager startUpdatingLocation];
-            NSLog(@"开始定位");
+//            NSLog(@"开始定位");
         }else{
             //            [self.locationManager stopUpdatingLocation];
             [self.locationManager startUpdatingLocation];
