@@ -22,4 +22,6 @@
 - (NSString *)getNewTraceFileName;
 //计算两个定位点之间的距离
 - (CGFloat)distanceFromLocation:(CLLocation *)location1 toLocation:(CLLocation *)location2;
+//检查名称是否有效
+- (BOOL)checkTrackNameIsValid:(NSString *)name;
 @end

@@ -2,7 +2,7 @@
 //  CDTrackList+CoreDataProperties.h
 //  Track
 //
-//  Created by Wuffy on 11/18/15.
+//  Created by Wuffy on 11/19/15.
 //  Copyright © 2015 Wuffy. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,21 +15,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CDTrackList (CoreDataProperties)
 
+@property (nonatomic) double ascent;
+@property (nonatomic) double averageSpeed;
 @property (nonatomic) NSTimeInterval createTime;
-@property (nullable, nonatomic, retain) NSString *name;
-@property (nonatomic) int16_t trackType;
 @property (nullable, nonatomic, retain) NSString *des;
-@property (nonatomic) NSTimeInterval endTime;
+@property (nonatomic) double descent;
 @property (nonatomic) int64_t distance;
 @property (nonatomic) double duration;
-@property (nonatomic) double maxSpeed;
-@property (nonatomic) double averageSpeed;
+@property (nonatomic) NSTimeInterval endTime;
 @property (nonatomic) BOOL haveSaved;
-@property (nonatomic) double ascent;
-@property (nonatomic) double descent;
+@property (nonatomic) double maxSpeed;
+@property (nullable, nonatomic, retain) NSString *name;
+@property (nonatomic) int16_t trackType;
 @property (nullable, nonatomic, retain) NSOrderedSet<CDPath *> *paths;
-@property (nullable, nonatomic, retain) NSOrderedSet<CDPointMark *> *points;
 @property (nullable, nonatomic, retain) NSOrderedSet<CDPhotoMark *> *photos;
+@property (nullable, nonatomic, retain) NSOrderedSet<CDPointMark *> *points;
 
 @end
 
@@ -46,17 +46,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addPaths:(NSOrderedSet<CDPath *> *)values;
 - (void)removePaths:(NSOrderedSet<CDPath *> *)values;
 
-- (void)insertObject:(CDPointMark *)value inPointsAtIndex:(NSUInteger)idx;
-- (void)removeObjectFromPointsAtIndex:(NSUInteger)idx;
-- (void)insertPoints:(NSArray<CDPointMark *> *)value atIndexes:(NSIndexSet *)indexes;
-- (void)removePointsAtIndexes:(NSIndexSet *)indexes;
-- (void)replaceObjectInPointsAtIndex:(NSUInteger)idx withObject:(CDPointMark *)value;
-- (void)replacePointsAtIndexes:(NSIndexSet *)indexes withPoints:(NSArray<CDPointMark *> *)values;
-- (void)addPointsObject:(CDPointMark *)value;
-- (void)removePointsObject:(CDPointMark *)value;
-- (void)addPoints:(NSOrderedSet<CDPointMark *> *)values;
-- (void)removePoints:(NSOrderedSet<CDPointMark *> *)values;
-
 - (void)insertObject:(CDPhotoMark *)value inPhotosAtIndex:(NSUInteger)idx;
 - (void)removeObjectFromPhotosAtIndex:(NSUInteger)idx;
 - (void)insertPhotos:(NSArray<CDPhotoMark *> *)value atIndexes:(NSIndexSet *)indexes;
@@ -67,6 +56,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removePhotosObject:(CDPhotoMark *)value;
 - (void)addPhotos:(NSOrderedSet<CDPhotoMark *> *)values;
 - (void)removePhotos:(NSOrderedSet<CDPhotoMark *> *)values;
+
+- (void)insertObject:(CDPointMark *)value inPointsAtIndex:(NSUInteger)idx;
+- (void)removeObjectFromPointsAtIndex:(NSUInteger)idx;
+- (void)insertPoints:(NSArray<CDPointMark *> *)value atIndexes:(NSIndexSet *)indexes;
+- (void)removePointsAtIndexes:(NSIndexSet *)indexes;
+- (void)replaceObjectInPointsAtIndex:(NSUInteger)idx withObject:(CDPointMark *)value;
+- (void)replacePointsAtIndexes:(NSIndexSet *)indexes withPoints:(NSArray<CDPointMark *> *)values;
+- (void)addPointsObject:(CDPointMark *)value;
+- (void)removePointsObject:(CDPointMark *)value;
+- (void)addPoints:(NSOrderedSet<CDPointMark *> *)values;
+- (void)removePoints:(NSOrderedSet<CDPointMark *> *)values;
 
 @end
 

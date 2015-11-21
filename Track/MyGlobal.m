@@ -50,4 +50,19 @@
     return distance;
 }
 
+- (BOOL)checkTrackNameIsValid:(NSString *)name
+{
+    BOOL result = NO;
+    NSString *regex = @"[a-zA-Z0-9\u4e00-\u9fa5\\- ]{1,20}";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    if(![pred evaluateWithObject:name]){
+        NSLog(@"昵称只能由中文、字母或数字组成");
+        result = NO;
+    }else{
+        result = YES;
+    }
+    
+    return result;
+}
+
 @end

@@ -2,7 +2,7 @@
 //  CDTrackList+CoreDataProperties.m
 //  Track
 //
-//  Created by Wuffy on 11/18/15.
+//  Created by Wuffy on 11/19/15.
 //  Copyright © 2015 Wuffy. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,20 +13,20 @@
 
 @implementation CDTrackList (CoreDataProperties)
 
+@dynamic ascent;
+@dynamic averageSpeed;
 @dynamic createTime;
-@dynamic name;
-@dynamic trackType;
 @dynamic des;
-@dynamic endTime;
+@dynamic descent;
 @dynamic distance;
 @dynamic duration;
-@dynamic maxSpeed;
-@dynamic averageSpeed;
+@dynamic endTime;
 @dynamic haveSaved;
-@dynamic ascent;
-@dynamic descent;
+@dynamic maxSpeed;
+@dynamic name;
+@dynamic trackType;
 @dynamic paths;
-@dynamic points;
 @dynamic photos;
+@dynamic points;
 
 @end

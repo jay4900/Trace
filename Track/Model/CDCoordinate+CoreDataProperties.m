@@ -2,7 +2,7 @@
 //  CDCoordinate+CoreDataProperties.m
 //  Track
 //
-//  Created by Wuffy on 11/18/15.
+//  Created by Wuffy on 11/19/15.
 //  Copyright © 2015 Wuffy. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -17,5 +17,6 @@
 @dynamic latitude;
 @dynamic longitude;
 @dynamic timestamp;
+@dynamic path;
 
 @end

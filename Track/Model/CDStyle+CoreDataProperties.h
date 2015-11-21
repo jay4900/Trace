@@ -2,7 +2,7 @@
 //  CDStyle+CoreDataProperties.h
 //  Track
 //
-//  Created by Wuffy on 11/18/15.
+//  Created by Wuffy on 11/19/15.
 //  Copyright © 2015 Wuffy. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,10 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CDStyle (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *sid;
 @property (nullable, nonatomic, retain) NSString *iconUrl;
 @property (nullable, nonatomic, retain) NSString *lineColor;
 @property (nonatomic) float scale;
+@property (nullable, nonatomic, retain) NSString *sid;
 
 @end
 

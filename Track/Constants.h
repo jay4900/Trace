@@ -26,12 +26,22 @@ typedef void(^SingleObjectHandler)(id obj);
 #define NOTIFY_addLineToMap         @"addLineToMap"
 
 //CoreData Entity
-#define Entity_Trace                @"CDTraceList"
+#define Entity_Trace                @"CDTrackList"
 #define Entity_Path                 @"CDPath"
 #define Entity_Coord                @"CDCoordinate"
 #define Entity_PointMark            @"CDPointMark"
 #define Entity_PhotoMark            @"CDPhotoMark"
 #define Entity_Style                @"CDStyle"
 #define Entity_LocalStorage         @"CDLocalStorage"
+
+//定义TrackType
+typedef NS_ENUM(NSInteger, TrackType) {
+    kTrackType_Walk = 0,
+    kTrackType_Run,
+    kTrackType_Hike,
+    kTrackType_Cycle,
+    kTrackType_Drive,
+    kTrackType_Other
+};
 
 #endif /* Constants_h */

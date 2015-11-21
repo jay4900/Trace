@@ -19,6 +19,8 @@
 #import "Constants.h"
 #import "TraceInfo.h"
 #import "MyGlobal.h"
+#import "UITextField+Addition.h"
+#import "MyAlertView.h"
 #endif
 
 #endif /* PrefixHeader_pch */

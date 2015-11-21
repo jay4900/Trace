@@ -2,12 +2,14 @@
 //  CDCoordinate.h
 //  Track
 //
-//  Created by Wuffy on 11/18/15.
+//  Created by Wuffy on 11/19/15.
 //  Copyright © 2015 Wuffy. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+
+@class CDPath;
 
 NS_ASSUME_NONNULL_BEGIN
 

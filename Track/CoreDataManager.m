@@ -151,14 +151,14 @@
     return resultArr;
 }
 
-- (CDTrackList *)addNewTrace
+- (CDTrackList *)addNewTrack
 {
     CDTrackList *track = (CDTrackList *)[self addEntityWithName:Entity_Trace];
     track.createTime = [[NSDate date] timeIntervalSince1970];
     return track;
 }
 
-- (void)deleteTrace:(CDTrackList *)track
+- (void)deleteTrack:(CDTrackList *)track
 {
     for (CDPath *path in track.paths) {
         for (CDCoordinate *coord in path.coords) {
@@ -176,6 +176,18 @@
     }
     
     [self.managedObjectContext deleteObject:track];
+}
+
+- (void)insertCoordinate:(CDCoordinate *)coord intoTrack:(CDTrackList *)track
+{
+    CDPath *lastPath = nil;
+    if (track.paths.count == 0) {
+        lastPath = (CDPath *)[self addEntityWithName:Entity_Path];
+        [track addPathsObject:lastPath];
+    }else{
+        lastPath = [track.paths lastObject];
+    }
+    [lastPath addCoordsObject:coord];
 }
 
 #pragma mark - 本地Key/Value存储

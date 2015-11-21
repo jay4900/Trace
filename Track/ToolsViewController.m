@@ -9,7 +9,8 @@
 #import "ToolsViewController.h"
 #import "ToolCollectionViewCell.h"
 #import <CoreLocation/CoreLocation.h>
-#import "NewTrackViewController.h"
+#import "EditTrackViewController.h"
+#import "MyAlertView.h"
 
 @interface ToolsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate>
 @property (strong, nonatomic) UICollectionView *collectionView;
@@ -25,6 +26,7 @@
 @property (strong, nonatomic) NSString *traceFileName;
 
 @property (strong, nonatomic) CDTrackList *track;
+@property BOOL isReadyToTrace;
 
 @end
 
@@ -35,6 +37,21 @@
     // Do any additional setup after loading the view.
     [self initViewNodes];
     [self startLocation];
+}
+
+- (void)testMyAlertView
+{
+    MyAlertView *alertView = [[MyAlertView alloc] initWithTitle:@"title"
+                                                        message:@"message"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"OK1", nil];
+    alertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
+    alertView.handler = ^(NSInteger index) {
+        NSLog(@"index:%d", (int)index);
+    };
+
+    [alertView show];
 }
 
 - (void)initViewNodes
@@ -84,6 +101,7 @@
     self.startBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.startBtn.layer.borderWidth = 1.6;
     self.startBtn.layer.cornerRadius = 10.0;
+    [self.startBtn addTarget:self action:@selector(startBtnPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.startBtn];
     self.startBtn.hidden = YES;
     
@@ -96,6 +114,7 @@
     self.doneBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.doneBtn.layer.borderWidth = 1.6;
     self.doneBtn.layer.cornerRadius = 10.0;
+    [self.doneBtn addTarget:self action:@selector(doneBtnPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.doneBtn];
     self.doneBtn.hidden = YES;
     
@@ -146,28 +165,48 @@
 #pragma mark - 按钮方法
 - (void)addBtnItemPressed
 {
-//    if (self.track == nil) {
-////        GLOBAL.coordsArr = [NSMutableArray array];
-//        self.traceFileName = [GLOBAL getNewTraceFileName];
-////        self.track = [COREDATA addNewTraceWithName:self.traceFileName];
-//        [self.locationManager stopUpdatingHeading];
-//    }
-//    
-//    if (GLOBAL.isTracing == NO) {
-//        GLOBAL.isTracing = YES;
-//        [self startLocation];
-//    }else{
-//        GLOBAL.isTracing = NO;
-//        [self stopLocation];
-//        if (self.track) self.editItem.enabled = YES;
-//    }
-    if (GLOBAL.isTracing == NO) {
-        NewTrackViewController *addTrackView = [[NewTrackViewController alloc] init];
-        [self.navigationController pushViewController:addTrackView animated:YES];
+    if (self.isReadyToTrace == NO) {
+        [self showEditTrackView:YES];
+    }else{
+        MyAlertView *alertView = [[MyAlertView alloc] initWithTitle:nil
+                                                            message:@"You are recording a track. Are you sure to create a new track?"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Cancel"
+                                                  otherButtonTitles:@"Ok", nil];
+        alertView.handler = ^(NSInteger index) {
+            if (index == 1) {
+                [self showEditTrackView:YES];
+            }
+        };
+        [alertView show];
+        
     }
 }
 
 - (void)editBtnItemPressed
+{
+    [self showEditTrackView:NO];
+}
+
+- (void)startBtnPressed
+{
+    BOOL isTracing = GLOBAL.isTracing;
+    if (isTracing == NO) {
+        GLOBAL.isTracing = YES;
+        [self.startBtn setBackgroundColor:[UIColor redColor]];
+        [self.startBtn setTitle:@"Pause" forState:UIControlStateNormal];
+        
+        CDPath *path = (CDPath *)[COREDATA addEntityWithName:Entity_Path];
+        [GLOBAL.currentTrack addPathsObject:path];
+        [self startLocation];
+    }else{
+        GLOBAL.isTracing = NO;
+        [self.startBtn setBackgroundColor:[UIColor greenColor]];
+        [self.startBtn setTitle:@"Start" forState:UIControlStateNormal];
+    }
+}
+
+- (void)doneBtnPressed
 {
     
 }
@@ -184,6 +223,50 @@
 }
 
 #pragma mark - 其他方法
+- (void)showEditTrackView:(BOOL)isAddNewTrack
+{
+    EditTrackViewController *editTrackView = [[EditTrackViewController alloc] init];
+    editTrackView.isAddNewTrack = isAddNewTrack;
+    __weak ToolsViewController *this = self;
+    editTrackView.finishedEditHandler = ^() {
+        this.navigationItem.title = GLOBAL.currentTrack.name;
+        this.editItem.enabled = YES;
+        this.startBtn.hidden = NO;
+        this.isReadyToTrace = YES;
+        [self updateLocationManager];
+    };
+    
+    [self.navigationController pushViewController:editTrackView animated:YES];
+}
+
+- (void)updateLocationManager
+{
+    //不同的TrackType对应不同的设置
+    switch (GLOBAL.currentTrack.trackType) {
+        case kTrackType_Drive:
+        {
+            self.locationManager.activityType = CLActivityTypeAutomotiveNavigation;
+            self.locationManager.distanceFilter = 20.0;
+        }
+            break;
+        case kTrackType_Walk:
+        case kTrackType_Run:
+        case kTrackType_Cycle:
+        {
+            self.locationManager.activityType = CLActivityTypeFitness;
+            self.locationManager.distanceFilter = 10.0;
+        }
+            break;
+            
+        default:
+        {
+            self.locationManager.activityType = CLActivityTypeOther;
+            self.locationManager.distanceFilter = 10.0;
+        }
+            break;
+    }
+}
+
 - (void)updateCollectionViewWithLocation:(CLLocation *)location
 {
     if (GLOBAL.traceInfo == nil) GLOBAL.traceInfo = [[TraceInfo alloc] init];
@@ -255,13 +338,12 @@
     NSLog(@"location:%f, %f, %f, %f", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy, location.verticalAccuracy);
     
     if (GLOBAL.isTracing) {
-//        CDLocation *loc = (CDLocation *)[COREDATA addEntityWithName:Entity_Location];
-//        loc.latitude = [NSNumber numberWithDouble:location.coordinate.latitude];
-//        loc.longitude = [NSNumber numberWithDouble:location.coordinate.longitude];
-//        loc.altitude = [NSNumber numberWithDouble:location.altitude];
-//        loc.timestamp = location.timestamp;
-//        
-//        [self.track addLocationsObject:loc];
+        CDCoordinate *coord = (CDCoordinate *)[COREDATA addEntityWithName:Entity_Coord];
+        coord.latitude = location.coordinate.latitude;
+        coord.longitude = location.coordinate.longitude;
+        coord.altitude = location.altitude;
+        coord.timestamp = [location.timestamp timeIntervalSince1970];
+        [COREDATA insertCoordinate:coord intoTrack:GLOBAL.currentTrack];
     }else{
         [manager stopUpdatingLocation];
     }

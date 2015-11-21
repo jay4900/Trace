@@ -2,16 +2,18 @@
 //  CDPhotoMark.h
 //  Track
 //
-//  Created by Wuffy on 11/18/15.
+//  Created by Wuffy on 11/19/15.
 //  Copyright © 2015 Wuffy. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "CDPointMark.h"
+#import <CoreData/CoreData.h>
+
+@class CDStyle, CDTrackList;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CDPhotoMark : CDPointMark
+@interface CDPhotoMark : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
 
