@@ -7,13 +7,16 @@
 //
 
 #import "ToolsViewController.h"
-#import "ToolCollectionViewCell.h"
+#import "ToolsCell.h"
 #import <CoreLocation/CoreLocation.h>
-#import "EditTrackViewController.h"
+#import "EditTrackTVC.h"
 #import "MyAlertView.h"
 
 @interface ToolsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate>
-@property (strong, nonatomic) UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIButton *startBtn;
+@property (weak, nonatomic) IBOutlet UIButton *doneBtn;
+
 @property (strong, nonatomic) NSArray *dataArr;
 @property (strong, nonatomic) UITextView *logTextView;
 
@@ -21,12 +24,14 @@
 
 @property (strong, nonatomic) UIBarButtonItem *addItem;
 @property (strong, nonatomic) UIBarButtonItem *editItem;
-@property (strong, nonatomic) UIButton *startBtn;
-@property (strong, nonatomic) UIButton *doneBtn;
+@property (strong, nonatomic) UIBarButtonItem *cameraItem;
 @property (strong, nonatomic) NSString *traceFileName;
 
 @property (strong, nonatomic) CDTrackList *track;
 @property BOOL isReadyToTrace;
+
+- (IBAction)startBtnPressed:(id)sender;
+- (IBAction)doneBtnPressed:(id)sender;
 
 @end
 
@@ -67,57 +72,28 @@
                                                      style:UIBarButtonItemStylePlain
                                                     target:self
                                                     action:@selector(editBtnItemPressed)];
-    self.navigationItem.rightBarButtonItem = self.editItem;
-    self.editItem.enabled = NO;
     
-    CGRect frame = [UIScreen mainScreen].bounds;
+    self.cameraItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
+                                                                    target:self
+                                                                    action:@selector(cameraBtnItemPressed)];
+    self.navigationItem.rightBarButtonItem = self.cameraItem;
+    self.cameraItem.enabled = NO;
     
-    CGFloat cell_width = CGRectGetWidth(frame)*0.5;
-    CGFloat cell_height = 70.0;
-    
-    CGRect frame_collectionView = CGRectMake(0, 64.0, CGRectGetWidth(frame), cell_height * 4);
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    layout.itemSize = CGSizeMake(cell_width, cell_height);
-    layout.minimumLineSpacing = 0.0;
-    layout.minimumInteritemSpacing = 0.0;
-    
-    self.collectionView = [[UICollectionView alloc] initWithFrame:frame_collectionView
-                                             collectionViewLayout:layout];
-    self.collectionView.dataSource = self;
-    self.collectionView.delegate = self;
-    [self.collectionView registerNib:[UINib nibWithNibName:@"ToolCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"Cell"];
-    [self.view addSubview:self.collectionView];
-    
-    CGFloat btn_width = CGRectGetWidth(frame) - 40.0;
-    CGFloat btn_height = 40.0;
-    
-    self.startBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.startBtn.frame = CGRectMake(20.0, CGRectGetHeight(frame) - 44 - (10+btn_height)*2, btn_width, btn_height);
-    [self.startBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.startBtn setBackgroundColor:[UIColor greenColor]];
-    [self.startBtn setTitle:@"Start" forState:UIControlStateNormal];
     self.startBtn.clipsToBounds = YES;
     self.startBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.startBtn.layer.borderWidth = 1.6;
     self.startBtn.layer.cornerRadius = 10.0;
-    [self.startBtn addTarget:self action:@selector(startBtnPressed) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.startBtn];
     self.startBtn.hidden = YES;
     
-    self.doneBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.doneBtn.frame = CGRectMake(20.0, CGRectGetHeight(frame) - 44 - (10+btn_height), btn_width, btn_height);
-    [self.doneBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.doneBtn setBackgroundColor:[UIColor blueColor]];
-    [self.doneBtn setTitle:@"Done" forState:UIControlStateNormal];
     self.doneBtn.clipsToBounds = YES;
     self.doneBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.doneBtn.layer.borderWidth = 1.6;
     self.doneBtn.layer.cornerRadius = 10.0;
-    [self.doneBtn addTarget:self action:@selector(doneBtnPressed) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.doneBtn];
     self.doneBtn.hidden = YES;
     
+    CGRect frame = [UIScreen mainScreen].bounds;
+    UICollectionViewFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
+    layout.itemSize = CGSizeMake(CGRectGetWidth(frame)*0.5, 70);
     
 //    self.logTextView = [[UITextView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(frame_collectionView) + 10, CGRectGetWidth(frame) - 20, 80)];
 //    [self.view addSubview:self.logTextView];
@@ -165,22 +141,7 @@
 #pragma mark - 按钮方法
 - (void)addBtnItemPressed
 {
-    if (self.isReadyToTrace == NO) {
-        [self showEditTrackView:YES];
-    }else{
-        MyAlertView *alertView = [[MyAlertView alloc] initWithTitle:nil
-                                                            message:@"You are recording a track. Are you sure to create a new track?"
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Cancel"
-                                                  otherButtonTitles:@"Ok", nil];
-        alertView.handler = ^(NSInteger index) {
-            if (index == 1) {
-                [self showEditTrackView:YES];
-            }
-        };
-        [alertView show];
-        
-    }
+    [self showEditTrackView:YES];
 }
 
 - (void)editBtnItemPressed
@@ -188,7 +149,12 @@
     [self showEditTrackView:NO];
 }
 
-- (void)startBtnPressed
+- (void)cameraBtnItemPressed
+{
+    
+}
+
+- (IBAction)startBtnPressed:(id)sender
 {
     BOOL isTracing = GLOBAL.isTracing;
     if (isTracing == NO) {
@@ -206,7 +172,7 @@
     }
 }
 
-- (void)doneBtnPressed
+- (IBAction)doneBtnPressed:(id)sender
 {
     
 }
@@ -225,18 +191,25 @@
 #pragma mark - 其他方法
 - (void)showEditTrackView:(BOOL)isAddNewTrack
 {
-    EditTrackViewController *editTrackView = [[EditTrackViewController alloc] init];
-    editTrackView.isAddNewTrack = isAddNewTrack;
+    EditTrackTVC *editTVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"EditTrackTVC"];
+    editTVC.isAddNewTrack = isAddNewTrack;
     __weak ToolsViewController *this = self;
-    editTrackView.finishedEditHandler = ^() {
+    editTVC.finishedEditHandler = ^() {
         this.navigationItem.title = GLOBAL.currentTrack.name;
-        this.editItem.enabled = YES;
+        this.navigationItem.leftBarButtonItem = this.editItem;
         this.startBtn.hidden = NO;
-        this.isReadyToTrace = YES;
-        [self updateLocationManager];
+        this.cameraItem.enabled = YES;
+        [this updateLocationManager];
+    };
+    editTVC.deleteTrackHandler = ^() {
+        this.navigationItem.title = @"Tools";
+        this.navigationItem.leftBarButtonItem = this.addItem;
+        this.startBtn.hidden = YES;
+        this.cameraItem.enabled = NO;
+        [this stopLocation];
     };
     
-    [self.navigationController pushViewController:editTrackView animated:YES];
+    [self.navigationController pushViewController:editTVC animated:YES];
 }
 
 - (void)updateLocationManager
@@ -294,7 +267,10 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ToolCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    ToolsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[ToolsCell alloc] init];
+    }
     
     NSDictionary *dataDict = self.dataArr[indexPath.row];
     NSString *title = dataDict[@"title"];

@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "83759BA01BEDC5DF00D248BE"
-            BuildableName = "Trace.app"
-            BlueprintName = "Trace"
-            ReferencedContainer = "container:Trace.xcodeproj">
+            BuildableName = "Track.app"
+            BlueprintName = "Track"
+            ReferencedContainer = "container:Track.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "83759BA01BEDC5DF00D248BE"
-            BuildableName = "Trace.app"
-            BlueprintName = "Trace"
-            ReferencedContainer = "container:Trace.xcodeproj">
+            BuildableName = "Track.app"
+            BlueprintName = "Track"
+            ReferencedContainer = "container:Track.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

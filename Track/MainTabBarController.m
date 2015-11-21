@@ -26,7 +26,7 @@
 
 - (void)initViewNodes
 {
-    ToolsViewController *toolsView = [[ToolsViewController alloc] init];
+    ToolsViewController *toolsView = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ToolsViewController"];
     MapViewController *mapView = [[MapViewController alloc] init];
     HistoryViewController *historyView = [[HistoryViewController alloc] init];
     SettingViewController *settingView = [[SettingViewController alloc] init];

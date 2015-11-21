@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		023B39991C00CA9800614D8C /* ToolsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 023B39981C00CA9800614D8C /* ToolsCell.m */; };
+		023B399C1C00D7F600614D8C /* EditTrackTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 023B399B1C00D7F600614D8C /* EditTrackTVC.m */; };
+		023B399F1C00D88000614D8C /* InputNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 023B399E1C00D88000614D8C /* InputNameCell.m */; };
+		023B39A21C00D89A00614D8C /* CommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 023B39A11C00D89A00614D8C /* CommonCell.m */; };
+		023B39A51C00D8B100614D8C /* OneBtnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 023B39A41C00D8B100614D8C /* OneBtnCell.m */; };
 		830AAD921BFD6AA70078262B /* UITextField+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AAD911BFD6AA70078262B /* UITextField+Addition.m */; };
 		830AAD981BFD766F0078262B /* MyAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AAD971BFD766F0078262B /* MyAlertView.m */; };
 		830AADDF1BFDB7040078262B /* CDCoordinate+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AADC41BFDB7040078262B /* CDCoordinate+CoreDataProperties.m */; };
@@ -34,21 +39,28 @@
 		83759BC91BEDCCA400D248BE /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83759BC81BEDCCA400D248BE /* MapViewController.m */; };
 		83759BCC1BEDCCE500D248BE /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83759BCB1BEDCCE500D248BE /* HistoryViewController.m */; };
 		83759BCF1BEDCD0700D248BE /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83759BCE1BEDCD0700D248BE /* SettingViewController.m */; };
-		83759BD81BEDDB8900D248BE /* ToolCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83759BD61BEDDB8900D248BE /* ToolCollectionViewCell.m */; };
-		83759BD91BEDDB8900D248BE /* ToolCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83759BD71BEDDB8900D248BE /* ToolCollectionViewCell.xib */; };
 		83759BDC1BEDE6F500D248BE /* TraceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 83759BDB1BEDE6F500D248BE /* TraceInfo.m */; };
 		83759BDF1BEDE7B000D248BE /* MyGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 83759BDE1BEDE7B000D248BE /* MyGlobal.m */; };
 		83759BE31BEDF3F000D248BE /* LocationMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83759BE21BEDF3F000D248BE /* LocationMapView.m */; };
 		83759BE61BEDF4E200D248BE /* ChinaMapShift.m in Sources */ = {isa = PBXBuildFile; fileRef = 83759BE51BEDF4E200D248BE /* ChinaMapShift.m */; };
 		83759BE91BEE01B100D248BE /* TraceFileListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83759BE81BEE01B100D248BE /* TraceFileListView.m */; };
 		83759BEC1BEE022800D248BE /* DXPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 83759BEB1BEE022800D248BE /* DXPopover.m */; };
-		83A5EAC71BFC7D0C00E4A81F /* EditTrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5EAC61BFC7D0C00E4A81F /* EditTrackViewController.m */; };
 		83BE40C81BF0493700B4CAB4 /* KMLObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BE40C71BF0493700B4CAB4 /* KMLObject.m */; };
 		83BE40FD1BF0841300B4CAB4 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BE40FC1BF0841300B4CAB4 /* CoreDataManager.m */; };
 		83E2DA7A1BF9D11C00E1B499 /* Track.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83E2DA781BF9D11C00E1B499 /* Track.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		023B39971C00CA9800614D8C /* ToolsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolsCell.h; sourceTree = "<group>"; };
+		023B39981C00CA9800614D8C /* ToolsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolsCell.m; sourceTree = "<group>"; };
+		023B399A1C00D7F600614D8C /* EditTrackTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTrackTVC.h; sourceTree = "<group>"; };
+		023B399B1C00D7F600614D8C /* EditTrackTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTrackTVC.m; sourceTree = "<group>"; };
+		023B399D1C00D88000614D8C /* InputNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputNameCell.h; sourceTree = "<group>"; };
+		023B399E1C00D88000614D8C /* InputNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputNameCell.m; sourceTree = "<group>"; };
+		023B39A01C00D89A00614D8C /* CommonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonCell.h; sourceTree = "<group>"; };
+		023B39A11C00D89A00614D8C /* CommonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonCell.m; sourceTree = "<group>"; };
+		023B39A31C00D8B100614D8C /* OneBtnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneBtnCell.h; sourceTree = "<group>"; };
+		023B39A41C00D8B100614D8C /* OneBtnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneBtnCell.m; sourceTree = "<group>"; };
 		830AAD901BFD6AA70078262B /* UITextField+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Addition.h"; sourceTree = "<group>"; };
 		830AAD911BFD6AA70078262B /* UITextField+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Addition.m"; sourceTree = "<group>"; };
 		830AAD961BFD766F0078262B /* MyAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAlertView.h; sourceTree = "<group>"; };
@@ -102,9 +114,6 @@
 		83759BCE1BEDCD0700D248BE /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		83759BD01BEDD3A600D248BE /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		83759BD31BEDD44A00D248BE /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		83759BD51BEDDB8900D248BE /* ToolCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolCollectionViewCell.h; sourceTree = "<group>"; };
-		83759BD61BEDDB8900D248BE /* ToolCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolCollectionViewCell.m; sourceTree = "<group>"; };
-		83759BD71BEDDB8900D248BE /* ToolCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolCollectionViewCell.xib; sourceTree = "<group>"; };
 		83759BDA1BEDE6F500D248BE /* TraceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TraceInfo.h; sourceTree = "<group>"; };
 		83759BDB1BEDE6F500D248BE /* TraceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TraceInfo.m; sourceTree = "<group>"; };
 		83759BDD1BEDE7B000D248BE /* MyGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGlobal.h; sourceTree = "<group>"; };
@@ -117,8 +126,6 @@
 		83759BE81BEE01B100D248BE /* TraceFileListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TraceFileListView.m; sourceTree = "<group>"; };
 		83759BEA1BEE022800D248BE /* DXPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXPopover.h; sourceTree = "<group>"; };
 		83759BEB1BEE022800D248BE /* DXPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXPopover.m; sourceTree = "<group>"; };
-		83A5EAC51BFC7D0C00E4A81F /* EditTrackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTrackViewController.h; sourceTree = "<group>"; };
-		83A5EAC61BFC7D0C00E4A81F /* EditTrackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTrackViewController.m; sourceTree = "<group>"; };
 		83BE40C61BF0493700B4CAB4 /* KMLObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMLObject.h; sourceTree = "<group>"; };
 		83BE40C71BF0493700B4CAB4 /* KMLObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMLObject.m; sourceTree = "<group>"; };
 		83BE40FB1BF0841300B4CAB4 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
@@ -137,6 +144,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		023B39961C00CA7600614D8C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				023B39971C00CA9800614D8C /* ToolsCell.h */,
+				023B39981C00CA9800614D8C /* ToolsCell.m */,
+				023B399D1C00D88000614D8C /* InputNameCell.h */,
+				023B399E1C00D88000614D8C /* InputNameCell.m */,
+				023B39A01C00D89A00614D8C /* CommonCell.h */,
+				023B39A11C00D89A00614D8C /* CommonCell.m */,
+				023B39A31C00D8B100614D8C /* OneBtnCell.h */,
+				023B39A41C00D8B100614D8C /* OneBtnCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		830AAD8F1BFD6A9F0078262B /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +220,7 @@
 				83759BC21BEDC77D00D248BE /* MainTabBarController.m */,
 				83BE40C61BF0493700B4CAB4 /* KMLObject.h */,
 				83BE40C71BF0493700B4CAB4 /* KMLObject.m */,
+				023B39961C00CA7600614D8C /* Cells */,
 				83759BD41BEDDB2900D248BE /* ToolsView */,
 				83759BE01BEDF3CD00D248BE /* MapView */,
 				83759BCA1BEDCCE500D248BE /* HistoryViewController.h */,
@@ -226,11 +249,8 @@
 			children = (
 				83759BC41BEDCC9000D248BE /* ToolsViewController.h */,
 				83759BC51BEDCC9000D248BE /* ToolsViewController.m */,
-				83759BD51BEDDB8900D248BE /* ToolCollectionViewCell.h */,
-				83759BD61BEDDB8900D248BE /* ToolCollectionViewCell.m */,
-				83759BD71BEDDB8900D248BE /* ToolCollectionViewCell.xib */,
-				83A5EAC51BFC7D0C00E4A81F /* EditTrackViewController.h */,
-				83A5EAC61BFC7D0C00E4A81F /* EditTrackViewController.m */,
+				023B399A1C00D7F600614D8C /* EditTrackTVC.h */,
+				023B399B1C00D7F600614D8C /* EditTrackTVC.m */,
 			);
 			name = ToolsView;
 			sourceTree = "<group>";
@@ -355,7 +375,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83759BD91BEDDB8900D248BE /* ToolCollectionViewCell.xib in Resources */,
 				83759BB71BEDC5DF00D248BE /* LaunchScreen.storyboard in Resources */,
 				83759BBF1BEDC66600D248BE /* InfoPlist.strings in Resources */,
 				83759BB41BEDC5DF00D248BE /* Assets.xcassets in Resources */,
@@ -384,23 +403,26 @@
 				830AAD981BFD766F0078262B /* MyAlertView.m in Sources */,
 				83759BDF1BEDE7B000D248BE /* MyGlobal.m in Sources */,
 				830AADE71BFDB7040078262B /* CDTrackList+CoreDataProperties.m in Sources */,
-				83759BD81BEDDB8900D248BE /* ToolCollectionViewCell.m in Sources */,
 				830AADE61BFDB7040078262B /* CDPointMark.m in Sources */,
 				830AADE81BFDB7040078262B /* CDTrackList.m in Sources */,
+				023B399C1C00D7F600614D8C /* EditTrackTVC.m in Sources */,
 				83759BA91BEDC5DF00D248BE /* AppDelegate.m in Sources */,
 				83759BC91BEDCCA400D248BE /* MapViewController.m in Sources */,
+				023B399F1C00D88000614D8C /* InputNameCell.m in Sources */,
 				830AADEA1BFDB7040078262B /* CDLocalStorage.m in Sources */,
 				83759BE31BEDF3F000D248BE /* LocationMapView.m in Sources */,
+				023B39991C00CA9800614D8C /* ToolsCell.m in Sources */,
 				83759BA61BEDC5DF00D248BE /* main.m in Sources */,
-				83A5EAC71BFC7D0C00E4A81F /* EditTrackViewController.m in Sources */,
 				83759BCC1BEDCCE500D248BE /* HistoryViewController.m in Sources */,
 				83759BDC1BEDE6F500D248BE /* TraceInfo.m in Sources */,
 				830AADE41BFDB7040078262B /* CDPhotoMark.m in Sources */,
+				023B39A51C00D8B100614D8C /* OneBtnCell.m in Sources */,
 				83BE40FD1BF0841300B4CAB4 /* CoreDataManager.m in Sources */,
 				830AADEB1BFDB7040078262B /* CDStyle+CoreDataProperties.m in Sources */,
 				83E2DA7A1BF9D11C00E1B499 /* Track.xcdatamodeld in Sources */,
 				83759BE61BEDF4E200D248BE /* ChinaMapShift.m in Sources */,
 				83759BC61BEDCC9000D248BE /* ToolsViewController.m in Sources */,
+				023B39A21C00D89A00614D8C /* CommonCell.m in Sources */,
 				83759BCF1BEDCD0700D248BE /* SettingViewController.m in Sources */,
 				830AADE11BFDB7040078262B /* CDPath+CoreDataProperties.m in Sources */,
 				830AADE21BFDB7040078262B /* CDPath.m in Sources */,
@@ -468,6 +490,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -504,6 +527,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -521,7 +545,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iwit2014.Trace;
 				PRODUCT_NAME = Track;
-				PROVISIONING_PROFILE = "e602dab5-4150-4fd3-9bb3-193f96957760";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -537,7 +561,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iwit2014.Trace;
 				PRODUCT_NAME = Track;
-				PROVISIONING_PROFILE = "e602dab5-4150-4fd3-9bb3-193f96957760";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
