@@ -47,13 +47,13 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"Map";
     
-    UIBarButtonItem *allItem = [[UIBarButtonItem alloc] initWithTitle:@"All"
+    UIBarButtonItem *allItem = [[UIBarButtonItem alloc] initWithTitle:@"Standard"
                                                                 style:UIBarButtonItemStylePlain
                                                                target:self
                                                                action:@selector(allBtnPressed)];
     self.navigationItem.leftBarButtonItem = allItem;
     
-    self.listItem = [[UIBarButtonItem alloc] initWithTitle:@"List"
+    self.listItem = [[UIBarButtonItem alloc] initWithTitle:@"Hybrid"
                                                      style:UIBarButtonItemStylePlain
                                                     target:self
                                                     action:@selector(listBtnPressed)];
@@ -68,34 +68,41 @@
                                              selector:@selector(notifyAddLineToMap:)
                                                  name:NOTIFY_addLineToMap
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(notifyShowTrackToMap:)
+                                                 name:NOTIFY_ShowTrackToMap
+                                               object:nil];
 }
 
 #pragma mark - 按钮方法
 - (void)allBtnPressed
 {
-    if ([self.tracePlayTimer isValid]) {
-        [self.tracePlayTimer invalidate];
-    }
-    
-    if (self.coordsArr.count) {
-        [self.mapView clearAllLines];
-        [self.mapView addLinesWithCoordsArr:self.coordsArr];
-    }
+//    if ([self.tracePlayTimer isValid]) {
+//        [self.tracePlayTimer invalidate];
+//    }
+//    
+//    if (self.coordsArr.count) {
+//        [self.mapView clearAllLines];
+//        [self.mapView addLinesWithCoordsArr:self.coordsArr];
+//    }
+    self.mapView.mapView.mapType = MKMapTypeStandard;
 }
 
 - (void)listBtnPressed
 {
-    TraceFileListView *listView = [[TraceFileListView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame) * 0.8, 220)];
-    
-    DXPopover *popover = [DXPopover popover];
-    [popover showAtPoint:CGPointMake(CGRectGetWidth(self.view.frame) - 20, 64.0) popoverPostion:DXPopoverPositionDown withContentView:listView inView:self.navigationController.view];
-    
-    listView.fileNameHandler = ^(NSString *fileName) {
-//        CDTraceList *trace = [COREDATA fetchTraceWithName:fileName];
-//        GLOBAL.currentTrace = trace;
-//        [self playTrace];
-        [popover dismiss];
-    };
+//    TraceFileListView *listView = [[TraceFileListView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame) * 0.8, 220)];
+//    
+//    DXPopover *popover = [DXPopover popover];
+//    [popover showAtPoint:CGPointMake(CGRectGetWidth(self.view.frame) - 20, 64.0) popoverPostion:DXPopoverPositionDown withContentView:listView inView:self.navigationController.view];
+//    
+//    listView.fileNameHandler = ^(NSString *fileName) {
+////        CDTraceList *trace = [COREDATA fetchTraceWithName:fileName];
+////        GLOBAL.currentTrace = trace;
+////        [self playTrace];
+//        [popover dismiss];
+//    };
+    self.mapView.mapView.mapType = MKMapTypeHybrid;
 }
 
 #pragma makr - 其他方法
@@ -104,6 +111,12 @@
     CLLocation *location = notify.object;
     BOOL isCentered = self.isViewShowing;
     [self.mapView addLineToCoord:location.coordinate isCentered:isCentered];
+}
+
+- (void)notifyShowTrackToMap:(NSNotification *)notify
+{
+    CDTrackList *track = notify.object;
+    [self.mapView showTrack:track];
 }
 
 - (void)playTrace

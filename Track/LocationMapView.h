@@ -19,4 +19,6 @@
 - (void)addLineToCoord:(CLLocationCoordinate2D)coord isCentered:(BOOL)isCentered;
 - (void)addLinesWithCoordsArr:(NSArray *)coordsArr;
 - (void)clearAllLines;
+
+- (void)showTrack:(CDTrackList *)track;
 @end

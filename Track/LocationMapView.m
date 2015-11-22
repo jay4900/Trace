@@ -42,8 +42,6 @@
             self.locationManager.delegate = self;
             self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
             self.locationManager.distanceFilter = 10.0f;
-            if ([[[UIDevice currentDevice] systemVersion] doubleValue] > 8.0)
-                [self.locationManager requestWhenInUseAuthorization];
             [self.locationManager startUpdatingLocation];
 //            NSLog(@"开始定位");
         }else{
@@ -118,6 +116,34 @@
     
     free(coords);
     coords = nil;
+}
+
+- (void)showTrack:(CDTrackList *)track
+{
+    [self clearAllLines];
+    for (CDPath *path in track.paths) {
+        NSUInteger count = path.coords.count;
+        CLLocationCoordinate2D *coords = (CLLocationCoordinate2D *)malloc(count * sizeof(CLLocationCoordinate2D));
+        for (NSUInteger i=0; i<count; i++) {
+            CDCoordinate *coord = path.coords[i];
+            
+            Location marCoord = transformFromWGSToGCJ(LocationMake(coord.latitude, coord.longitude));
+            CLLocationCoordinate2D coordForShow = CLLocationCoordinate2DMake(marCoord.lat, marCoord.lng);
+            
+            //将坐标放进Polyline的坐标数组中
+            coords[i] = coordForShow;
+        }
+        
+        //画线
+        if (count > 1) {
+            MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coords count:count];
+            [self.mapView addOverlay:polyline];
+            [self.customPolylinesArr addObject:polyline];
+        }
+        
+        free(coords);
+        coords = nil;
+    }
 }
 
 - (void)clearAllLines

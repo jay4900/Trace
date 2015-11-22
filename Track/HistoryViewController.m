@@ -43,6 +43,11 @@
     [self.tableView reloadData];
 }
 
+- (void)showTrackToMapView:(CDTrackList *)track
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_ShowTrackToMap object:track];
+}
+
 #pragma mark - UITableViewDelegate, UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -57,9 +62,16 @@
     }
     CDTrackList *track = self.dataArr[indexPath.row];
     cell.textLabel.text = track.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"coords:%ld", [COREDATA getCountsOfTrack:track]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"coords:%ld distance:%.2fkm", (unsigned long)[COREDATA getCountsOfTrack:track], track.distance/1000.0];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CDTrackList *track = self.dataArr[indexPath.row];
+    self.tabBarController.selectedIndex = 1;
+    [self performSelector:@selector(showTrackToMapView:) withObject:track afterDelay:0.5];
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath

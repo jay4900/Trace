@@ -13,9 +13,9 @@
 #import "MyAlertView.h"
 
 @interface ToolsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate>
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UIButton *startBtn;
-@property (weak, nonatomic) IBOutlet UIButton *doneBtn;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet UIButton *startBtn;
+@property (strong, nonatomic) IBOutlet UIButton *doneBtn;
 
 @property (strong, nonatomic) NSArray *dataArr;
 @property (strong, nonatomic) UITextView *logTextView;
@@ -25,10 +25,6 @@
 @property (strong, nonatomic) UIBarButtonItem *addItem;
 @property (strong, nonatomic) UIBarButtonItem *editItem;
 @property (strong, nonatomic) UIBarButtonItem *cameraItem;
-@property (strong, nonatomic) NSString *traceFileName;
-
-@property (strong, nonatomic) CDTrackList *track;
-@property BOOL isReadyToTrace;
 
 - (IBAction)startBtnPressed:(id)sender;
 - (IBAction)doneBtnPressed:(id)sender;
@@ -120,6 +116,9 @@
             self.locationManager.activityType = CLActivityTypeOther;
             self.locationManager.distanceFilter = 10.0f;
             [self.locationManager startUpdatingLocation];
+            if (SYSTEM_VERSION >= 9.0) {
+                self.locationManager.allowsBackgroundLocationUpdates = YES;
+            }
             
             self.locationManager.headingFilter = 90;
             [self.locationManager startUpdatingHeading];
@@ -195,7 +194,7 @@
         self.navigationItem.title = @"Tools";
         
         GLOBAL.traceInfo = [[TraceInfo alloc] init];
-        [self.locationManager startUpdatingHeading];
+//        [self.locationManager startUpdatingHeading];
         
         [self.collectionView reloadData];
     };
@@ -242,7 +241,7 @@
         case kTrackType_Run:
         case kTrackType_Cycle:
         {
-            self.locationManager.activityType = CLActivityTypeFitness;
+            self.locationManager.activityType = CLActivityTypeAutomotiveNavigation;
             self.locationManager.distanceFilter = 10.0;
         }
             break;
@@ -267,6 +266,7 @@
     if (location.speed >= 0) GLOBAL.traceInfo.speed = location.speed * 3.6;
     else GLOBAL.traceInfo.speed = 0.0;
     GLOBAL.traceInfo.distance = GLOBAL.currentTrack.distance * 0.001;
+    GLOBAL.traceInfo.duration = GLOBAL.currentTrack.duration / 60.0;
     
     [self.collectionView reloadData];
 }
@@ -337,6 +337,10 @@
         coord.altitude = location.altitude;
         coord.timestamp = [location.timestamp timeIntervalSince1970];
         [COREDATA insertCoordinate:coord intoTrack:GLOBAL.currentTrack];
+        
+        if (location.speed > GLOBAL.currentTrack.maxSpeed) {
+            GLOBAL.currentTrack.maxSpeed = location.speed;
+        }
         
     }else{
         [manager stopUpdatingLocation];

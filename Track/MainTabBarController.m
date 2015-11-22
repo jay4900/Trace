@@ -40,6 +40,10 @@
     nav2.navigationBar.barStyle = UIBarStyleBlack;
     nav3.navigationBar.barStyle = UIBarStyleBlack;
     nav4.navigationBar.barStyle = UIBarStyleBlack;
+    nav1.navigationBar.barTintColor = [UIColor blackColor];
+    nav2.navigationBar.barTintColor = [UIColor blackColor];
+    nav3.navigationBar.barTintColor = [UIColor blackColor];
+    nav4.navigationBar.barTintColor = [UIColor blackColor];
     
     nav1.title = @"Tools";
     nav2.title = @"Map";
@@ -53,11 +57,12 @@
     
     self.tabBar.barStyle = UIBarStyleBlack;
     self.tabBar.tintColor = [UIColor redColor];
+    self.hidesBottomBarWhenPushed = YES;
     
-    CLLocation *loc1 = [[CLLocation alloc] initWithLatitude:22.392771 longitude:113.976439];
-    CLLocation *loc2 = [[CLLocation alloc] initWithLatitude:22.389839 longitude:113.981366];
-    CGFloat distance = [GLOBAL distanceFromLocation:loc1 toLocation:loc2];
-    NSLog(@"distance:%f", distance);
+//    CLLocation *loc1 = [[CLLocation alloc] initWithLatitude:22.392771 longitude:113.976439];
+//    CLLocation *loc2 = [[CLLocation alloc] initWithLatitude:22.389839 longitude:113.981366];
+//    CGFloat distance = [GLOBAL distanceFromLocation:loc1 toLocation:loc2];
+//    NSLog(@"distance:%f", distance);
 }
 
 @end

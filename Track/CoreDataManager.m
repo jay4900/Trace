@@ -193,6 +193,9 @@
         CDCoordinate *lastCoord = lastPath.coords.lastObject;
         double distance = [GLOBAL distanceFromCoord:lastCoord toCoord:coord];
         track.distance += distance;
+        
+        double duration = coord.timestamp - lastCoord.timestamp;
+        track.duration = duration;
     }
     
     [lastPath addCoordsObject:coord];

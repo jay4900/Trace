@@ -8,4 +8,4 @@
 
 //弹出定位授权时的提示信息
 NSLocationAlwaysUsageDescription        = "App use your loction info to show your position on the map.";
-//NSLocationWhenInUseUsageDescription     = "App use your loction info to show your position on the map.";
+NSLocationWhenInUseUsageDescription     = "App use your loction info to show your position on the map.";

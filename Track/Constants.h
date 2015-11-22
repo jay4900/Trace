@@ -15,6 +15,11 @@
 #define GREENCOLOR  [UIColor colorWithRed:35.0/255.0 green:255.0/255.0 blue:131.0/255.0 alpha:1.0]
 #define LINECOLOR   [UIColor colorWithRed:0xff/255.0 green:0x68/255.0 blue:0x68/255.0 alpha:1.0]
 
+#define SYSTEM_VERSION  [[[UIDevice currentDevice] systemVersion] floatValue]
+#define SCREEN_BOUNDS   [[UIScreen mainScreen] bounds]
+#define SCREEN_WIDTH    CGRectGetWidth([[UIScreen mainScreen] bounds])
+#define SCREEN_HEIGHT   CGRectGetHeight([[UIScreen mainScreen] bounds])
+
 //文件夹名称
 #define FOLDER_CACHES   @"Caches"
 
@@ -24,6 +29,7 @@ typedef void(^SingleObjectHandler)(id obj);
 
 //通知名称
 #define NOTIFY_addLineToMap         @"addLineToMap"
+#define NOTIFY_ShowTrackToMap       @"ShowTrackToMap"
 
 //CoreData Entity
 #define Entity_Trace                @"CDTrackList"
