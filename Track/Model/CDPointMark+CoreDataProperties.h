@@ -2,8 +2,8 @@
 //  CDPointMark+CoreDataProperties.h
 //  Track
 //
-//  Created by Wuffy on 11/19/15.
-//  Copyright © 2015 Wuffy. All rights reserved.
+//  Created by wufei on 15/11/22.
+//  Copyright © 2015年 Wuffy. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
 //  to delete and recreate this implementation file for your updated model.
@@ -21,7 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) double longitude;
 @property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) CDStyle *style;
-@property (nullable, nonatomic, retain) CDTrackList *track;
 
 @end
 

@@ -29,6 +29,7 @@
 - (CDTrackList *)addNewTrack;
 - (void)deleteTrack:(CDTrackList *)track;
 - (void)insertCoordinate:(CDCoordinate *)coord intoTrack:(CDTrackList *)track;
+- (NSUInteger)getCountsOfTrack:(CDTrackList *)track;
 
 //本地Key/Value存储
 - (NSString *)getLocalValueForKey:(NSString *)key;

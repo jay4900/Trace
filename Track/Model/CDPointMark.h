@@ -2,14 +2,14 @@
 //  CDPointMark.h
 //  Track
 //
-//  Created by Wuffy on 11/19/15.
-//  Copyright © 2015 Wuffy. All rights reserved.
+//  Created by wufei on 15/11/22.
+//  Copyright © 2015年 Wuffy. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class CDStyle, CDTrackList;
+@class CDStyle;
 
 NS_ASSUME_NONNULL_BEGIN
 

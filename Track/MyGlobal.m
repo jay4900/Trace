@@ -50,6 +50,13 @@
     return distance;
 }
 
+- (CGFloat)distanceFromCoord:(CDCoordinate *)coord1 toCoord:(CDCoordinate *)coord2
+{
+    CLLocation *location1 = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(coord1.latitude, coord1.longitude) altitude:0 horizontalAccuracy:0 verticalAccuracy:0 timestamp:[NSDate date]];
+    CLLocation *location2 = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(coord2.latitude, coord2.longitude) altitude:0 horizontalAccuracy:0 verticalAccuracy:0 timestamp:[NSDate date]];
+    return [self distanceFromLocation:location1 toLocation:location2];
+}
+
 - (BOOL)checkTrackNameIsValid:(NSString *)name
 {
     BOOL result = NO;

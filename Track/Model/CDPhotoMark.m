@@ -2,13 +2,12 @@
 //  CDPhotoMark.m
 //  Track
 //
-//  Created by Wuffy on 11/19/15.
-//  Copyright © 2015 Wuffy. All rights reserved.
+//  Created by wufei on 15/11/22.
+//  Copyright © 2015年 Wuffy. All rights reserved.
 //
 
 #import "CDPhotoMark.h"
 #import "CDStyle.h"
-#import "CDTrackList.h"
 
 @implementation CDPhotoMark
 

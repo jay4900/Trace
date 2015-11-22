@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F27" minimumToolsVersion="Xcode 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
     <entity name="CDCoordinate" representedClassName="CDCoordinate" syncable="YES">
         <attribute name="altitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="path" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDPath" inverseName="coords" inverseEntity="CDPath" syncable="YES"/>
     </entity>
     <entity name="CDLocalStorage" representedClassName="CDLocalStorage" syncable="YES">
         <attribute name="localKey" attributeType="String" syncable="YES"/>
         <attribute name="localValue" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="CDPath" representedClassName="CDPath" syncable="YES">
-        <relationship name="coords" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CDCoordinate" inverseName="path" inverseEntity="CDCoordinate" syncable="YES"/>
+        <relationship name="coords" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CDCoordinate" syncable="YES"/>
         <relationship name="lineStyle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDStyle" syncable="YES"/>
-        <relationship name="track" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTrackList" inverseName="paths" inverseEntity="CDTrackList" syncable="YES"/>
     </entity>
     <entity name="CDPhotoMark" representedClassName="CDPhotoMark" syncable="YES">
         <attribute name="altitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -24,7 +22,6 @@
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="style" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDStyle" syncable="YES"/>
-        <relationship name="track" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTrackList" inverseName="photos" inverseEntity="CDTrackList" syncable="YES"/>
     </entity>
     <entity name="CDPointMark" representedClassName="CDPointMark" syncable="YES">
         <attribute name="altitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -33,7 +30,6 @@
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="style" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDStyle" syncable="YES"/>
-        <relationship name="track" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTrackList" inverseName="points" inverseEntity="CDTrackList" syncable="YES"/>
     </entity>
     <entity name="CDStyle" representedClassName="CDStyle" syncable="YES">
         <attribute name="iconUrl" optional="YES" attributeType="String" syncable="YES"/>
@@ -54,16 +50,16 @@
         <attribute name="maxSpeed" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="trackType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="paths" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CDPath" inverseName="track" inverseEntity="CDPath" syncable="YES"/>
-        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CDPhotoMark" inverseName="track" inverseEntity="CDPhotoMark" syncable="YES"/>
-        <relationship name="points" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CDPointMark" inverseName="track" inverseEntity="CDPointMark" syncable="YES"/>
+        <relationship name="paths" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CDPath" syncable="YES"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CDPhotoMark" syncable="YES"/>
+        <relationship name="points" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CDPointMark" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CDCoordinate" positionX="-54" positionY="-9" width="128" height="120"/>
+        <element name="CDCoordinate" positionX="-54" positionY="-9" width="128" height="105"/>
         <element name="CDLocalStorage" positionX="0" positionY="153" width="128" height="75"/>
-        <element name="CDPath" positionX="-9" positionY="144" width="128" height="90"/>
-        <element name="CDPhotoMark" positionX="-36" positionY="63" width="128" height="165"/>
-        <element name="CDPointMark" positionX="-45" positionY="54" width="128" height="150"/>
+        <element name="CDPath" positionX="-9" positionY="144" width="128" height="75"/>
+        <element name="CDPhotoMark" positionX="-36" positionY="63" width="128" height="150"/>
+        <element name="CDPointMark" positionX="-45" positionY="54" width="128" height="135"/>
         <element name="CDStyle" positionX="-27" positionY="81" width="128" height="105"/>
         <element name="CDTrackList" positionX="-36" positionY="45" width="128" height="270"/>
     </elements>

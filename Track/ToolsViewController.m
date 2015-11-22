@@ -165,27 +165,43 @@
         CDPath *path = (CDPath *)[COREDATA addEntityWithName:Entity_Path];
         [GLOBAL.currentTrack addPathsObject:path];
         [self startLocation];
+        self.doneBtn.hidden = YES;
     }else{
         GLOBAL.isTracing = NO;
         [self.startBtn setBackgroundColor:[UIColor greenColor]];
         [self.startBtn setTitle:@"Start" forState:UIControlStateNormal];
+        
+        self.doneBtn.hidden = NO;
     }
 }
 
 - (IBAction)doneBtnPressed:(id)sender
 {
-    
-}
-
-- (void)saveLocationsData
-{
-    [COREDATA saveContext];
-    self.track = nil;
-    [self.locationManager startUpdatingHeading];
-    
-    self.editItem.enabled = NO;
-    
+    [self stopLocation];
     GLOBAL.isTracing = NO;
+    [COREDATA saveContext];
+    NSString *msg = [NSString stringWithFormat:@"Save %@ success!", GLOBAL.currentTrack.name];
+    GLOBAL.currentTrack = nil;
+    
+    MyAlertView *alertView = [[MyAlertView alloc] initWithTitle:nil
+                                                        message:msg
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil, nil];
+    alertView.handler = ^(NSInteger index) {
+        self.doneBtn.hidden = YES;
+        self.startBtn.hidden = YES;
+        self.navigationItem.leftBarButtonItem = self.addItem;
+        self.navigationItem.title = @"Tools";
+        
+        GLOBAL.traceInfo = [[TraceInfo alloc] init];
+        [self.locationManager startUpdatingHeading];
+        
+        [self.collectionView reloadData];
+    };
+    [alertView show];
+    
+    
 }
 
 #pragma mark - 其他方法
@@ -250,6 +266,7 @@
     GLOBAL.traceInfo.descent = location.verticalAccuracy;
     if (location.speed >= 0) GLOBAL.traceInfo.speed = location.speed * 3.6;
     else GLOBAL.traceInfo.speed = 0.0;
+    GLOBAL.traceInfo.distance = GLOBAL.currentTrack.distance * 0.001;
     
     [self.collectionView reloadData];
 }
@@ -320,6 +337,7 @@
         coord.altitude = location.altitude;
         coord.timestamp = [location.timestamp timeIntervalSince1970];
         [COREDATA insertCoordinate:coord intoTrack:GLOBAL.currentTrack];
+        
     }else{
         [manager stopUpdatingLocation];
     }

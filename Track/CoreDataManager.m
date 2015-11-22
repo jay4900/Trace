@@ -187,7 +187,25 @@
     }else{
         lastPath = [track.paths lastObject];
     }
+    
+    //计算距离
+    if (lastPath.coords.count) {
+        CDCoordinate *lastCoord = lastPath.coords.lastObject;
+        double distance = [GLOBAL distanceFromCoord:lastCoord toCoord:coord];
+        track.distance += distance;
+    }
+    
     [lastPath addCoordsObject:coord];
+}
+
+- (NSUInteger)getCountsOfTrack:(CDTrackList *)track
+{
+    NSUInteger result = 0;
+    for (CDPath *path in track.paths) {
+        result += path.coords.count;
+    }
+    
+    return result;
 }
 
 #pragma mark - 本地Key/Value存储

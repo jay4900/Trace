@@ -8,7 +8,9 @@
 
 #import "HistoryViewController.h"
 
-@interface HistoryViewController ()
+@interface HistoryViewController () <UITableViewDelegate, UITableViewDataSource>
+@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *dataArr;
 
 @end
 
@@ -17,22 +19,63 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self initViewNodes];
+}
+
+- (void)initViewNodes
+{
     self.title = @"History";
+    self.dataArr = [COREDATA fetchTrackList];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    UIBarButtonItem *refreshItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshBtnItemPressed)];
+    self.navigationItem.rightBarButtonItem = refreshItem;
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 64.0 - 44.0)];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    [self.view addSubview:self.tableView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)refreshBtnItemPressed
+{
+    self.dataArr = [COREDATA fetchTrackList];
+    [self.tableView reloadData];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - UITableViewDelegate, UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataArr.count;
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+    }
+    CDTrackList *track = self.dataArr[indexPath.row];
+    cell.textLabel.text = track.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"coords:%ld", [COREDATA getCountsOfTrack:track]];
+    
+    return cell;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        CDTrackList *track = self.dataArr[indexPath.row];
+        [self.dataArr removeObject:track];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        [COREDATA deleteTrack:track];
+    }
+}
 
 @end

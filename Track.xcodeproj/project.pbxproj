@@ -12,22 +12,22 @@
 		023B399F1C00D88000614D8C /* InputNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 023B399E1C00D88000614D8C /* InputNameCell.m */; };
 		023B39A21C00D89A00614D8C /* CommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 023B39A11C00D89A00614D8C /* CommonCell.m */; };
 		023B39A51C00D8B100614D8C /* OneBtnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 023B39A41C00D8B100614D8C /* OneBtnCell.m */; };
+		0243CB071C0170B8005EF685 /* CDPath+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0243CAEC1C0170B8005EF685 /* CDPath+CoreDataProperties.m */; };
+		0243CB081C0170B8005EF685 /* CDPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 0243CAEE1C0170B8005EF685 /* CDPath.m */; };
+		0243CB091C0170B8005EF685 /* CDPointMark+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0243CAF01C0170B8005EF685 /* CDPointMark+CoreDataProperties.m */; };
+		0243CB0A1C0170B8005EF685 /* CDPointMark.m in Sources */ = {isa = PBXBuildFile; fileRef = 0243CAF21C0170B8005EF685 /* CDPointMark.m */; };
+		0243CB0B1C0170B8005EF685 /* CDPhotoMark+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0243CAF41C0170B8005EF685 /* CDPhotoMark+CoreDataProperties.m */; };
+		0243CB0C1C0170B8005EF685 /* CDPhotoMark.m in Sources */ = {isa = PBXBuildFile; fileRef = 0243CAF61C0170B8005EF685 /* CDPhotoMark.m */; };
+		0243CB0D1C0170B8005EF685 /* CDStyle+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0243CAF81C0170B8005EF685 /* CDStyle+CoreDataProperties.m */; };
+		0243CB0E1C0170B8005EF685 /* CDStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0243CAFA1C0170B8005EF685 /* CDStyle.m */; };
+		0243CB0F1C0170B8005EF685 /* CDTrackList+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0243CAFC1C0170B8005EF685 /* CDTrackList+CoreDataProperties.m */; };
+		0243CB101C0170B8005EF685 /* CDTrackList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0243CAFE1C0170B8005EF685 /* CDTrackList.m */; };
+		0243CB111C0170B8005EF685 /* CDLocalStorage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0243CB001C0170B8005EF685 /* CDLocalStorage+CoreDataProperties.m */; };
+		0243CB121C0170B8005EF685 /* CDLocalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0243CB021C0170B8005EF685 /* CDLocalStorage.m */; };
+		0243CB131C0170B8005EF685 /* CDCoordinate+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0243CB041C0170B8005EF685 /* CDCoordinate+CoreDataProperties.m */; };
+		0243CB141C0170B8005EF685 /* CDCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0243CB061C0170B8005EF685 /* CDCoordinate.m */; };
 		830AAD921BFD6AA70078262B /* UITextField+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AAD911BFD6AA70078262B /* UITextField+Addition.m */; };
 		830AAD981BFD766F0078262B /* MyAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AAD971BFD766F0078262B /* MyAlertView.m */; };
-		830AADDF1BFDB7040078262B /* CDCoordinate+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AADC41BFDB7040078262B /* CDCoordinate+CoreDataProperties.m */; };
-		830AADE01BFDB7040078262B /* CDCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AADC61BFDB7040078262B /* CDCoordinate.m */; };
-		830AADE11BFDB7040078262B /* CDPath+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AADC81BFDB7040078262B /* CDPath+CoreDataProperties.m */; };
-		830AADE21BFDB7040078262B /* CDPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AADCA1BFDB7040078262B /* CDPath.m */; };
-		830AADE31BFDB7040078262B /* CDPhotoMark+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AADCC1BFDB7040078262B /* CDPhotoMark+CoreDataProperties.m */; };
-		830AADE41BFDB7040078262B /* CDPhotoMark.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AADCE1BFDB7040078262B /* CDPhotoMark.m */; };
-		830AADE51BFDB7040078262B /* CDPointMark+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AADD01BFDB7040078262B /* CDPointMark+CoreDataProperties.m */; };
-		830AADE61BFDB7040078262B /* CDPointMark.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AADD21BFDB7040078262B /* CDPointMark.m */; };
-		830AADE71BFDB7040078262B /* CDTrackList+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AADD41BFDB7040078262B /* CDTrackList+CoreDataProperties.m */; };
-		830AADE81BFDB7040078262B /* CDTrackList.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AADD61BFDB7040078262B /* CDTrackList.m */; };
-		830AADE91BFDB7040078262B /* CDLocalStorage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AADD81BFDB7040078262B /* CDLocalStorage+CoreDataProperties.m */; };
-		830AADEA1BFDB7040078262B /* CDLocalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AADDA1BFDB7040078262B /* CDLocalStorage.m */; };
-		830AADEB1BFDB7040078262B /* CDStyle+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AADDC1BFDB7040078262B /* CDStyle+CoreDataProperties.m */; };
-		830AADEC1BFDB7040078262B /* CDStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AADDE1BFDB7040078262B /* CDStyle.m */; };
 		83759BA61BEDC5DF00D248BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83759BA51BEDC5DF00D248BE /* main.m */; };
 		83759BA91BEDC5DF00D248BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83759BA81BEDC5DF00D248BE /* AppDelegate.m */; };
 		83759BAF1BEDC5DF00D248BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83759BAD1BEDC5DF00D248BE /* Main.storyboard */; };
@@ -61,38 +61,38 @@
 		023B39A11C00D89A00614D8C /* CommonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonCell.m; sourceTree = "<group>"; };
 		023B39A31C00D8B100614D8C /* OneBtnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneBtnCell.h; sourceTree = "<group>"; };
 		023B39A41C00D8B100614D8C /* OneBtnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneBtnCell.m; sourceTree = "<group>"; };
+		0243CAEB1C0170B8005EF685 /* CDPath+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDPath+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0243CAEC1C0170B8005EF685 /* CDPath+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDPath+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0243CAED1C0170B8005EF685 /* CDPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPath.h; sourceTree = "<group>"; };
+		0243CAEE1C0170B8005EF685 /* CDPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPath.m; sourceTree = "<group>"; };
+		0243CAEF1C0170B8005EF685 /* CDPointMark+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDPointMark+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0243CAF01C0170B8005EF685 /* CDPointMark+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDPointMark+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0243CAF11C0170B8005EF685 /* CDPointMark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPointMark.h; sourceTree = "<group>"; };
+		0243CAF21C0170B8005EF685 /* CDPointMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPointMark.m; sourceTree = "<group>"; };
+		0243CAF31C0170B8005EF685 /* CDPhotoMark+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDPhotoMark+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0243CAF41C0170B8005EF685 /* CDPhotoMark+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDPhotoMark+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0243CAF51C0170B8005EF685 /* CDPhotoMark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPhotoMark.h; sourceTree = "<group>"; };
+		0243CAF61C0170B8005EF685 /* CDPhotoMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPhotoMark.m; sourceTree = "<group>"; };
+		0243CAF71C0170B8005EF685 /* CDStyle+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDStyle+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0243CAF81C0170B8005EF685 /* CDStyle+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDStyle+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0243CAF91C0170B8005EF685 /* CDStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDStyle.h; sourceTree = "<group>"; };
+		0243CAFA1C0170B8005EF685 /* CDStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDStyle.m; sourceTree = "<group>"; };
+		0243CAFB1C0170B8005EF685 /* CDTrackList+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDTrackList+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0243CAFC1C0170B8005EF685 /* CDTrackList+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDTrackList+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0243CAFD1C0170B8005EF685 /* CDTrackList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTrackList.h; sourceTree = "<group>"; };
+		0243CAFE1C0170B8005EF685 /* CDTrackList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTrackList.m; sourceTree = "<group>"; };
+		0243CAFF1C0170B8005EF685 /* CDLocalStorage+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDLocalStorage+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0243CB001C0170B8005EF685 /* CDLocalStorage+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDLocalStorage+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0243CB011C0170B8005EF685 /* CDLocalStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLocalStorage.h; sourceTree = "<group>"; };
+		0243CB021C0170B8005EF685 /* CDLocalStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLocalStorage.m; sourceTree = "<group>"; };
+		0243CB031C0170B8005EF685 /* CDCoordinate+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDCoordinate+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0243CB041C0170B8005EF685 /* CDCoordinate+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDCoordinate+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0243CB051C0170B8005EF685 /* CDCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCoordinate.h; sourceTree = "<group>"; };
+		0243CB061C0170B8005EF685 /* CDCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCoordinate.m; sourceTree = "<group>"; };
 		830AAD901BFD6AA70078262B /* UITextField+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Addition.h"; sourceTree = "<group>"; };
 		830AAD911BFD6AA70078262B /* UITextField+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Addition.m"; sourceTree = "<group>"; };
 		830AAD961BFD766F0078262B /* MyAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAlertView.h; sourceTree = "<group>"; };
 		830AAD971BFD766F0078262B /* MyAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAlertView.m; sourceTree = "<group>"; };
-		830AADC31BFDB7040078262B /* CDCoordinate+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDCoordinate+CoreDataProperties.h"; sourceTree = "<group>"; };
-		830AADC41BFDB7040078262B /* CDCoordinate+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDCoordinate+CoreDataProperties.m"; sourceTree = "<group>"; };
-		830AADC51BFDB7040078262B /* CDCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCoordinate.h; sourceTree = "<group>"; };
-		830AADC61BFDB7040078262B /* CDCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCoordinate.m; sourceTree = "<group>"; };
-		830AADC71BFDB7040078262B /* CDPath+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDPath+CoreDataProperties.h"; sourceTree = "<group>"; };
-		830AADC81BFDB7040078262B /* CDPath+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDPath+CoreDataProperties.m"; sourceTree = "<group>"; };
-		830AADC91BFDB7040078262B /* CDPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPath.h; sourceTree = "<group>"; };
-		830AADCA1BFDB7040078262B /* CDPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPath.m; sourceTree = "<group>"; };
-		830AADCB1BFDB7040078262B /* CDPhotoMark+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDPhotoMark+CoreDataProperties.h"; sourceTree = "<group>"; };
-		830AADCC1BFDB7040078262B /* CDPhotoMark+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDPhotoMark+CoreDataProperties.m"; sourceTree = "<group>"; };
-		830AADCD1BFDB7040078262B /* CDPhotoMark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPhotoMark.h; sourceTree = "<group>"; };
-		830AADCE1BFDB7040078262B /* CDPhotoMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPhotoMark.m; sourceTree = "<group>"; };
-		830AADCF1BFDB7040078262B /* CDPointMark+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDPointMark+CoreDataProperties.h"; sourceTree = "<group>"; };
-		830AADD01BFDB7040078262B /* CDPointMark+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDPointMark+CoreDataProperties.m"; sourceTree = "<group>"; };
-		830AADD11BFDB7040078262B /* CDPointMark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPointMark.h; sourceTree = "<group>"; };
-		830AADD21BFDB7040078262B /* CDPointMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPointMark.m; sourceTree = "<group>"; };
-		830AADD31BFDB7040078262B /* CDTrackList+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDTrackList+CoreDataProperties.h"; sourceTree = "<group>"; };
-		830AADD41BFDB7040078262B /* CDTrackList+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDTrackList+CoreDataProperties.m"; sourceTree = "<group>"; };
-		830AADD51BFDB7040078262B /* CDTrackList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTrackList.h; sourceTree = "<group>"; };
-		830AADD61BFDB7040078262B /* CDTrackList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTrackList.m; sourceTree = "<group>"; };
-		830AADD71BFDB7040078262B /* CDLocalStorage+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDLocalStorage+CoreDataProperties.h"; sourceTree = "<group>"; };
-		830AADD81BFDB7040078262B /* CDLocalStorage+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDLocalStorage+CoreDataProperties.m"; sourceTree = "<group>"; };
-		830AADD91BFDB7040078262B /* CDLocalStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLocalStorage.h; sourceTree = "<group>"; };
-		830AADDA1BFDB7040078262B /* CDLocalStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLocalStorage.m; sourceTree = "<group>"; };
-		830AADDB1BFDB7040078262B /* CDStyle+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDStyle+CoreDataProperties.h"; sourceTree = "<group>"; };
-		830AADDC1BFDB7040078262B /* CDStyle+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDStyle+CoreDataProperties.m"; sourceTree = "<group>"; };
-		830AADDD1BFDB7040078262B /* CDStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDStyle.h; sourceTree = "<group>"; };
-		830AADDE1BFDB7040078262B /* CDStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDStyle.m; sourceTree = "<group>"; };
 		83759BA11BEDC5DF00D248BE /* Track.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Track.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83759BA51BEDC5DF00D248BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		83759BA71BEDC5DF00D248BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -275,34 +275,34 @@
 		83A5EA5B1BFC51C500E4A81F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				830AADC31BFDB7040078262B /* CDCoordinate+CoreDataProperties.h */,
-				830AADC41BFDB7040078262B /* CDCoordinate+CoreDataProperties.m */,
-				830AADC51BFDB7040078262B /* CDCoordinate.h */,
-				830AADC61BFDB7040078262B /* CDCoordinate.m */,
-				830AADC71BFDB7040078262B /* CDPath+CoreDataProperties.h */,
-				830AADC81BFDB7040078262B /* CDPath+CoreDataProperties.m */,
-				830AADC91BFDB7040078262B /* CDPath.h */,
-				830AADCA1BFDB7040078262B /* CDPath.m */,
-				830AADCB1BFDB7040078262B /* CDPhotoMark+CoreDataProperties.h */,
-				830AADCC1BFDB7040078262B /* CDPhotoMark+CoreDataProperties.m */,
-				830AADCD1BFDB7040078262B /* CDPhotoMark.h */,
-				830AADCE1BFDB7040078262B /* CDPhotoMark.m */,
-				830AADCF1BFDB7040078262B /* CDPointMark+CoreDataProperties.h */,
-				830AADD01BFDB7040078262B /* CDPointMark+CoreDataProperties.m */,
-				830AADD11BFDB7040078262B /* CDPointMark.h */,
-				830AADD21BFDB7040078262B /* CDPointMark.m */,
-				830AADD31BFDB7040078262B /* CDTrackList+CoreDataProperties.h */,
-				830AADD41BFDB7040078262B /* CDTrackList+CoreDataProperties.m */,
-				830AADD51BFDB7040078262B /* CDTrackList.h */,
-				830AADD61BFDB7040078262B /* CDTrackList.m */,
-				830AADD71BFDB7040078262B /* CDLocalStorage+CoreDataProperties.h */,
-				830AADD81BFDB7040078262B /* CDLocalStorage+CoreDataProperties.m */,
-				830AADD91BFDB7040078262B /* CDLocalStorage.h */,
-				830AADDA1BFDB7040078262B /* CDLocalStorage.m */,
-				830AADDB1BFDB7040078262B /* CDStyle+CoreDataProperties.h */,
-				830AADDC1BFDB7040078262B /* CDStyle+CoreDataProperties.m */,
-				830AADDD1BFDB7040078262B /* CDStyle.h */,
-				830AADDE1BFDB7040078262B /* CDStyle.m */,
+				0243CAEB1C0170B8005EF685 /* CDPath+CoreDataProperties.h */,
+				0243CAEC1C0170B8005EF685 /* CDPath+CoreDataProperties.m */,
+				0243CAED1C0170B8005EF685 /* CDPath.h */,
+				0243CAEE1C0170B8005EF685 /* CDPath.m */,
+				0243CAEF1C0170B8005EF685 /* CDPointMark+CoreDataProperties.h */,
+				0243CAF01C0170B8005EF685 /* CDPointMark+CoreDataProperties.m */,
+				0243CAF11C0170B8005EF685 /* CDPointMark.h */,
+				0243CAF21C0170B8005EF685 /* CDPointMark.m */,
+				0243CAF31C0170B8005EF685 /* CDPhotoMark+CoreDataProperties.h */,
+				0243CAF41C0170B8005EF685 /* CDPhotoMark+CoreDataProperties.m */,
+				0243CAF51C0170B8005EF685 /* CDPhotoMark.h */,
+				0243CAF61C0170B8005EF685 /* CDPhotoMark.m */,
+				0243CAF71C0170B8005EF685 /* CDStyle+CoreDataProperties.h */,
+				0243CAF81C0170B8005EF685 /* CDStyle+CoreDataProperties.m */,
+				0243CAF91C0170B8005EF685 /* CDStyle.h */,
+				0243CAFA1C0170B8005EF685 /* CDStyle.m */,
+				0243CAFB1C0170B8005EF685 /* CDTrackList+CoreDataProperties.h */,
+				0243CAFC1C0170B8005EF685 /* CDTrackList+CoreDataProperties.m */,
+				0243CAFD1C0170B8005EF685 /* CDTrackList.h */,
+				0243CAFE1C0170B8005EF685 /* CDTrackList.m */,
+				0243CAFF1C0170B8005EF685 /* CDLocalStorage+CoreDataProperties.h */,
+				0243CB001C0170B8005EF685 /* CDLocalStorage+CoreDataProperties.m */,
+				0243CB011C0170B8005EF685 /* CDLocalStorage.h */,
+				0243CB021C0170B8005EF685 /* CDLocalStorage.m */,
+				0243CB031C0170B8005EF685 /* CDCoordinate+CoreDataProperties.h */,
+				0243CB041C0170B8005EF685 /* CDCoordinate+CoreDataProperties.m */,
+				0243CB051C0170B8005EF685 /* CDCoordinate.h */,
+				0243CB061C0170B8005EF685 /* CDCoordinate.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -389,43 +389,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0243CB091C0170B8005EF685 /* CDPointMark+CoreDataProperties.m in Sources */,
+				0243CB0E1C0170B8005EF685 /* CDStyle.m in Sources */,
+				0243CB101C0170B8005EF685 /* CDTrackList.m in Sources */,
 				83759BE91BEE01B100D248BE /* TraceFileListView.m in Sources */,
+				0243CB0D1C0170B8005EF685 /* CDStyle+CoreDataProperties.m in Sources */,
 				83BE40C81BF0493700B4CAB4 /* KMLObject.m in Sources */,
-				830AADE01BFDB7040078262B /* CDCoordinate.m in Sources */,
-				830AADE31BFDB7040078262B /* CDPhotoMark+CoreDataProperties.m in Sources */,
-				830AADE91BFDB7040078262B /* CDLocalStorage+CoreDataProperties.m in Sources */,
 				83759BC31BEDC77D00D248BE /* MainTabBarController.m in Sources */,
 				830AAD921BFD6AA70078262B /* UITextField+Addition.m in Sources */,
-				830AADDF1BFDB7040078262B /* CDCoordinate+CoreDataProperties.m in Sources */,
 				83759BEC1BEE022800D248BE /* DXPopover.m in Sources */,
-				830AADE51BFDB7040078262B /* CDPointMark+CoreDataProperties.m in Sources */,
-				830AADEC1BFDB7040078262B /* CDStyle.m in Sources */,
+				0243CB0A1C0170B8005EF685 /* CDPointMark.m in Sources */,
+				0243CB131C0170B8005EF685 /* CDCoordinate+CoreDataProperties.m in Sources */,
+				0243CB071C0170B8005EF685 /* CDPath+CoreDataProperties.m in Sources */,
 				830AAD981BFD766F0078262B /* MyAlertView.m in Sources */,
 				83759BDF1BEDE7B000D248BE /* MyGlobal.m in Sources */,
-				830AADE71BFDB7040078262B /* CDTrackList+CoreDataProperties.m in Sources */,
-				830AADE61BFDB7040078262B /* CDPointMark.m in Sources */,
-				830AADE81BFDB7040078262B /* CDTrackList.m in Sources */,
 				023B399C1C00D7F600614D8C /* EditTrackTVC.m in Sources */,
 				83759BA91BEDC5DF00D248BE /* AppDelegate.m in Sources */,
+				0243CB0B1C0170B8005EF685 /* CDPhotoMark+CoreDataProperties.m in Sources */,
 				83759BC91BEDCCA400D248BE /* MapViewController.m in Sources */,
 				023B399F1C00D88000614D8C /* InputNameCell.m in Sources */,
-				830AADEA1BFDB7040078262B /* CDLocalStorage.m in Sources */,
 				83759BE31BEDF3F000D248BE /* LocationMapView.m in Sources */,
 				023B39991C00CA9800614D8C /* ToolsCell.m in Sources */,
+				0243CB0C1C0170B8005EF685 /* CDPhotoMark.m in Sources */,
+				0243CB081C0170B8005EF685 /* CDPath.m in Sources */,
+				0243CB121C0170B8005EF685 /* CDLocalStorage.m in Sources */,
+				0243CB111C0170B8005EF685 /* CDLocalStorage+CoreDataProperties.m in Sources */,
 				83759BA61BEDC5DF00D248BE /* main.m in Sources */,
+				0243CB141C0170B8005EF685 /* CDCoordinate.m in Sources */,
 				83759BCC1BEDCCE500D248BE /* HistoryViewController.m in Sources */,
 				83759BDC1BEDE6F500D248BE /* TraceInfo.m in Sources */,
-				830AADE41BFDB7040078262B /* CDPhotoMark.m in Sources */,
 				023B39A51C00D8B100614D8C /* OneBtnCell.m in Sources */,
 				83BE40FD1BF0841300B4CAB4 /* CoreDataManager.m in Sources */,
-				830AADEB1BFDB7040078262B /* CDStyle+CoreDataProperties.m in Sources */,
 				83E2DA7A1BF9D11C00E1B499 /* Track.xcdatamodeld in Sources */,
 				83759BE61BEDF4E200D248BE /* ChinaMapShift.m in Sources */,
+				0243CB0F1C0170B8005EF685 /* CDTrackList+CoreDataProperties.m in Sources */,
 				83759BC61BEDCC9000D248BE /* ToolsViewController.m in Sources */,
 				023B39A21C00D89A00614D8C /* CommonCell.m in Sources */,
 				83759BCF1BEDCD0700D248BE /* SettingViewController.m in Sources */,
-				830AADE11BFDB7040078262B /* CDPath+CoreDataProperties.m in Sources */,
-				830AADE21BFDB7040078262B /* CDPath.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
